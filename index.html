@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf6f0">
+  <meta name="description" content="ann.di.studio — комп’ютерна вишивка в Білій Церкві: монограми на рушниках, вишивка на одязі та шоперах, вироби зі шкіри.">
+  <title>ann.di.studio — комп’ютерна вишивка</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <div class="topbar">
+    <span data-i18n="shipping"></span>
+    <div class="lang"><button data-lang="uk">UA</button><i></i><button data-lang="en">EN</button></div>
+  </div>
+
+  <header class="header">
+    <a class="brand" href="#top" aria-label="ann.di.studio">
+      <img src="assets/logo.png" alt="" width="42" height="42"><b>ann<em>·</em>di<span>studio</span></b>
+    </a>
+    <nav id="nav" aria-label="Main">
+      <a href="#about" data-i18n="navAbout"></a><a href="#services" data-i18n="navServices"></a>
+      <a href="#shop" data-i18n="navShop"></a><a href="#works" data-i18n="navWorks"></a><a href="#contact" data-i18n="navContact"></a>
+    </nav>
+    <div class="actions">
+      <button class="icon" id="accountBtn" data-aria="account" aria-label="Account">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4-6 8-6s7 1.5 8 6"/></svg><i class="dot" id="accountDot" hidden></i>
+      </button>
+      <button class="icon" id="searchBtn" data-aria="search" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></button>
+      <button class="icon" id="favBtn" data-aria="wishlist" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><i class="badge" id="favCount">0</i></button>
+      <button class="icon" id="cartBtn" data-aria="cart" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><i class="badge" id="cartCount">0</i></button>
+      <button class="icon burger" id="burger" data-aria="menu" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="kicker" data-i18n="heroKicker"></p>
+        <h1 data-i18n-html="heroTitle"></h1>
+        <p class="lead" data-i18n-html="heroText"></p>
+        <div class="hero-cta"><a class="btn btn-wine" href="#shop" data-i18n="shopNow"></a><a class="btn btn-line" href="#contact" data-i18n="discuss"></a></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="arch" id="heroImage"></div>
+        <div class="round"><img src="assets/towels.jpg" alt=""></div>
+        <span class="stitch"></span>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="head"><h2 data-i18n="servicesTitle"></h2><p data-i18n="servicesLead"></p></div>
+      <div class="services">
+        <a class="svc" href="#shop"><img src="assets/towels.jpg" alt="" loading="lazy"><h3 data-i18n="svcTowels"></h3><p data-i18n="svcTowelsText"></p></a>
+        <a class="svc" href="#shop"><img src="assets/tees.jpg" alt="" loading="lazy"><h3 data-i18n="svcWear"></h3><p data-i18n="svcWearText"></p></a>
+        <a class="svc" href="#shop"><img src="assets/shopers.jpg" alt="" loading="lazy"><h3 data-i18n="svcBags"></h3><p data-i18n="svcBagsText"></p></a>
+        <a class="svc svc-text" href="#contact"><span class="mono">L</span><h3 data-i18n="svcLeather"></h3><p data-i18n="svcLeatherText"></p><b data-i18n="askUs"></b></a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="about-img" id="aboutImage" role="img" aria-label="ann.di.studio"></div>
+      <div class="about-copy">
+        <h2 data-i18n-html="aboutTitle"></h2>
+        <p data-i18n-html="aboutText"></p>
+        <ul class="values"><li data-i18n="v1"></li><li data-i18n="v2"></li><li data-i18n="v3"></li><li data-i18n="v4"></li></ul>
+      </div>
+    </section>
+
+    <!-- STEPS -->
+    <section class="section steps-sec">
+      <div class="head"><h2 data-i18n="stepsTitle"></h2></div>
+      <ol class="steps">
+        <li><b>01</b><h3 data-i18n="s1"></h3><p data-i18n="s1t"></p></li>
+        <li><b>02</b><h3 data-i18n="s2"></h3><p data-i18n="s2t"></p></li>
+        <li><b>03</b><h3 data-i18n="s3"></h3><p data-i18n="s3t"></p></li>
+      </ol>
+    </section>
+
+    <!-- SHOP -->
+    <section class="section" id="shop">
+      <div class="head"><h2 data-i18n="shopTitle"></h2><p data-i18n="shopLead"></p></div>
+      <div class="toolbar">
+        <div class="chips" id="chips"></div>
+        <div class="tools">
+          <input type="search" id="search" data-ph="searchPh" aria-label="Search">
+          <select id="sort" aria-label="Sort"><option value="featured" data-i18n="sortFeatured"></option><option value="low" data-i18n="sortLow"></option><option value="high" data-i18n="sortHigh"></option></select>
+        </div>
+      </div>
+      <div class="toolbar sub">
+        <div class="swatches" id="swatches"></div>
+        <label class="check"><input type="checkbox" id="stockOnly"><span data-i18n="inStock"></span></label>
+        <button class="link" id="resetFilters" data-i18n="reset"></button>
+        <span class="count" id="count"></span>
+      </div>
+      <div class="grid" id="grid"></div>
+      <p class="empty" id="empty" hidden></p>
+    </section>
+
+    <!-- WORKS -->
+    <section class="section works" id="works">
+      <div class="head"><h2 data-i18n-html="worksTitle"></h2><p data-i18n-html="worksText"></p></div>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="contact-copy">
+        <h2 data-i18n="contactTitle"></h2><p data-i18n="contactText"></p>
+        <div class="cards" id="contactCards"></div>
+      </div>
+      <form id="contactForm" class="card-form">
+        <input name="name" required maxlength="120" data-ph="fName" aria-label="Name">
+        <input name="email" type="email" required maxlength="200" placeholder="E-mail" aria-label="E-mail">
+        <textarea name="message" rows="4" required maxlength="4000" data-ph="fMsg" aria-label="Message"></textarea>
+        <button class="btn btn-wine" data-i18n="send"></button>
+        <p class="note" id="contactNote" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="foot-brand"><img src="assets/logo.png" alt="" width="46" height="46"><p>ann.di.studio<br><small>embroidery &amp; leather craft</small></p></div>
+    <div><h4 data-i18n="information"></h4><a href="#about" data-i18n="navAbout"></a><a href="#shop" data-i18n="navShop"></a><a href="#works" data-i18n="navWorks"></a></div>
+    <div><h4 data-i18n="help"></h4><a href="#contact" data-i18n="delivery"></a><a href="#contact" data-i18n="returns"></a><a href="#contact" data-i18n="navContact"></a></div>
+    <div class="foot-bottom"><span>© <span id="year"></span> ann.di.studio. <span data-i18n="rights"></span></span><a href="admin.html" data-i18n="admin"></a></div>
+  </footer>
+
+  <!-- Панелі -->
+  <div class="scrim" id="scrim"></div>
+  <aside class="drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="drawer-head"><h2 id="cartTitle" data-i18n="cart"></h2><button class="x" data-close aria-label="Close">×</button></div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-foot">
+      <div class="row"><span data-i18n="total"></span><b id="cartTotal"></b></div>
+      <p class="ship" id="shipMsg"></p>
+      <button class="btn btn-wine full" id="checkoutBtn" data-i18n="checkout"></button>
+      <small data-i18n="checkoutNote"></small>
+    </div>
+  </aside>
+  <aside class="drawer" id="favDrawer" role="dialog" aria-modal="true" aria-labelledby="favTitle">
+    <div class="drawer-head"><h2 id="favTitle" data-i18n="wishlist"></h2><button class="x" data-close aria-label="Close">×</button></div>
+    <div class="drawer-body" id="favItems"></div>
+  </aside>
+  <div class="modal" id="productModal" role="dialog" aria-modal="true"><div class="modal-card wide"><button class="x" data-close aria-label="Close">×</button><div id="productBody"></div></div></div>
+  <div class="modal" id="accountModal" role="dialog" aria-modal="true"><div class="modal-card narrow"><button class="x" data-close aria-label="Close">×</button><div id="accountBody"></div></div></div>
+  <section class="checkout" id="checkoutPage" hidden role="dialog" aria-modal="true"></section>
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="js/data.js"></script><script src="js/util.js"></script><script src="js/i18n.js"></script>
+  <script src="js/api.js"></script><script src="js/shop.js"></script><script src="js/checkout.js"></script><script src="js/account.js"></script>
+</body>
+</html>

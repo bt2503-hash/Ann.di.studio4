@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+  <title>Адмінпанель — ann.di.studio</title>
+  <link rel="icon" href="assets/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="index.html"><img src="assets/logo.png" alt="" width="38" height="38"><b>ann·di</b><span>admin</span></a>
+    <div><a href="index.html">← До магазину</a><button id="logout" hidden>Вийти</button></div>
+  </header>
+
+  <main>
+    <section class="login" id="login">
+      <h1>Вхід до адмінпанелі</h1>
+      <p class="muted">Доступно лише акаунту з роллю admin.</p>
+      <form id="loginForm">
+        <label>E-mail<input id="email" type="email" required autocomplete="username"></label>
+        <label>Пароль<input id="password" type="password" required autocomplete="current-password"></label>
+        <button class="primary">Увійти</button>
+        <p class="err" id="loginErr"></p>
+      </form>
+    </section>
+
+    <section id="dash" hidden>
+      <div class="stats">
+        <article><span>Нові замовлення</span><b id="stNew">0</b></article>
+        <article><span>Усі замовлення</span><b id="stOrders">0</b></article>
+        <article><span>Товари</span><b id="stProducts">0</b></article>
+        <article><span>Запити</span><b id="stRequests">0</b></article>
+      </div>
+      <nav class="tabs">
+        <button class="tab on" data-tab="orders">Замовлення</button><button class="tab" data-tab="products">Товари</button>
+        <button class="tab" data-tab="requests">Запити</button><button class="tab" data-tab="site">Сайт</button>
+      </nav>
+
+      <section class="panel" id="p-orders">
+        <div class="bar"><h2>Замовлення</h2><button class="ghost" id="exportCsv">Експорт CSV</button></div>
+        <div id="ordersList"></div>
+      </section>
+
+      <section class="panel" id="p-products" hidden>
+        <div class="bar"><h2>Каталог</h2><div><button class="ghost" id="seedBtn" hidden>Імпортувати стандартні товари</button> <button class="primary" id="addProduct">＋ Додати товар</button></div></div>
+        <div id="productsList"></div>
+      </section>
+
+      <section class="panel" id="p-requests" hidden>
+        <div class="bar"><h2>Запити з контактної форми</h2></div>
+        <div id="requestsList"></div>
+      </section>
+
+      <section class="panel" id="p-site" hidden>
+        <div class="bar"><h2>Тексти, фото й контакти</h2></div>
+        <form id="siteForm" class="siteform">
+          <fieldset><legend>Головний екран</legend><div class="g2">
+            <label>Заголовок (UA)<textarea data-f="heroTitle.uk" rows="2"></textarea></label><label>Заголовок (EN)<textarea data-f="heroTitle.en" rows="2"></textarea></label>
+            <label>Підзаголовок (UA)<textarea data-f="heroText.uk" rows="2"></textarea></label><label>Підзаголовок (EN)<textarea data-f="heroText.en" rows="2"></textarea></label>
+            <div class="wide"><label>Головне фото (порожньо — стандартне)<input type="file" accept="image/*" data-single="heroImage"></label><div class="thumbs" id="th-heroImage"></div></div>
+          </div></fieldset>
+          <fieldset><legend>Про нас</legend><div class="g2">
+            <label>Заголовок (UA)<textarea data-f="aboutTitle.uk" rows="2"></textarea></label><label>Заголовок (EN)<textarea data-f="aboutTitle.en" rows="2"></textarea></label>
+            <label>Текст (UA)<textarea data-f="aboutText.uk" rows="5"></textarea></label><label>Текст (EN)<textarea data-f="aboutText.en" rows="5"></textarea></label>
+            <div class="wide"><label>Фото<input type="file" accept="image/*" data-single="aboutImage"></label><div class="thumbs" id="th-aboutImage"></div></div>
+          </div></fieldset>
+          <fieldset><legend>Наші роботи</legend><div class="g2">
+            <label>Заголовок (UA)<textarea data-f="worksTitle.uk" rows="2"></textarea></label><label>Заголовок (EN)<textarea data-f="worksTitle.en" rows="2"></textarea></label>
+            <label>Підпис (UA)<textarea data-f="worksText.uk" rows="2"></textarea></label><label>Підпис (EN)<textarea data-f="worksText.en" rows="2"></textarea></label>
+            <div class="wide"><label>Фото робіт (можна кілька)<input type="file" accept="image/*" multiple id="worksFile"></label><div class="thumbs" id="th-works"></div></div>
+          </div></fieldset>
+          <fieldset><legend>Контакти</legend><div class="g2">
+            <label>Телефон<input data-f="phone"></label><label>E-mail<input data-f="email" type="email"></label>
+            <label>Адреса<input data-f="address"></label><label>Instagram (посилання або @назва)<input data-f="instagram"></label>
+          </div></fieldset>
+          <p class="muted">Порожнє поле тексту залишає стандартний текст. Усе зберігається в базі й одразу видно всім відвідувачам.</p>
+          <div class="row"><button class="primary">Зберегти</button><button type="button" class="ghost" id="siteReset">Скинути до стандартних</button></div>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <div class="modal" id="pModal"><form class="card" id="pForm">
+    <button type="button" class="x" id="pClose">×</button><h2 id="pTitle">Новий товар</h2><input type="hidden" id="pId">
+    <div class="g2">
+      <label>Назва (UA)<input id="nameUk" required></label><label>Назва (EN)<input id="nameEn" required></label>
+      <label>Ціна, грн (0 — за запитом)<input id="price" type="number" min="0" step="1" required></label>
+      <label>Категорія<select id="category"><option value="embroidery">Вишиті вироби</option><option value="leather">Вироби зі шкіри</option><option value="accessories">Аксесуари</option></select></label>
+      <label>Колір<select id="color"><option value="brown">Коричневий</option><option value="beige">Бежевий</option><option value="black">Чорний</option><option value="white">Білий</option><option value="blue">Блакитний</option><option value="yellow">Жовтий</option></select></label>
+      <label>Наявність<select id="stock"><option value="true">В наявності</option><option value="false">Немає в наявності</option></select></label>
+      <label class="wide">Короткий опис (UA)<input id="descUk"></label><label class="wide">Короткий опис (EN)<input id="descEn"></label>
+      <label class="wide">Детальний опис (UA)<textarea id="detUk" rows="3"></textarea></label><label class="wide">Детальний опис (EN)<textarea id="detEn" rows="3"></textarea></label>
+      <div class="wide"><label>Фото (перше — головне)<input type="file" id="pFiles" accept="image/*" multiple></label><div class="thumbs" id="pThumbs"></div></div>
+    </div>
+    <button class="primary" id="pSave">Зберегти товар</button>
+  </form></div>
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="js/data.js"></script><script src="js/util.js"></script><script src="js/api.js"></script><script src="js/admin.js"></script>
+</body>
+</html>
